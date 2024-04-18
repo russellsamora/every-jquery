@@ -4,29 +4,57 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>every jquery</title>
-		<meta name="description" content="harnessing the power of 71 jquerys on one site">
+		<meta name="description" content="harnessing the power of 77 jquerys on one site">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
 			body {
-				font-size: 24px;
+				font-size: 20px;
 				margin: 0;
 				padding: 1rem;
 			}
 
 			h1, p {
-				margin: 1rem 0;
+				margin: 16px 0;
 			}
 
-			small {
+			ul {
+				display: flex;
+				flex-wrap: wrap;
+				margin: 16px 0;
+				padding: 0;
+				list-style-type: none;
+			}
+
+			li {
+				margin: 0 8px 8px 0;
+			}
+
+			mark {
+				padding: 0 4px;
+			}
+
+			footer {
 				position: fixed;
 				left: 0;
 				bottom: 0;
-				padding: 1rem;
+				padding: 16px;
+			}
+
+			@media only screen and (min-width: 640px) {
+				body {
+					font-size: 24px;
+				}
 			}
 		</style>
 	</head>
 	<body>
 		<main id="content">
+			<h1>every jquery*</h1>
+			<p>this site runs on the power of <strong><mark></mark></strong> <a href="https://jquery.com/">jquerys!</a></p>
+			<ul></ul>
+			<footer>
+			<small><em>*releases before v1.2 have been excluded due to incompatibility on some browsers</em>. inspired by things one cannot unsee. by <a href="https://russellsamora.github.io">russell</a>.</small>
+			</footer>
 		</main>
 			<script src="https://code.jquery.com/jquery-1.2.min.js"></script>
 			<script src="https://code.jquery.com/jquery-1.2.1.min.js"></script>
@@ -99,21 +127,110 @@
 			<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
 			<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 			<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		<script>
+			<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+			<script src="https://code.jquery.com/jquery-3.6.2.min.js"></script>
+			<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+			<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+			<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+			<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script>
+			const versions = [
+			"1.2",
+			"1.2.1",
+			"1.2.2",
+			"1.2.3",
+			"1.2.4",
+			"1.2.5",
+			"1.2.6",
+			"1.3",
+			"1.3.1",
+			"1.3.2",
+			"1.4",
+			"1.4.1",
+			"1.4.2",
+			"1.4.3",
+			"1.4.4",
+			"1.5",
+			"1.5.1",
+			"1.5.2",
+			"1.6",
+			"1.6.1",
+			"1.6.2",
+			"1.6.3",
+			"1.6.4",
+			"1.7.0",
+			"1.7.0",
+			"1.7.1",
+			"1.7.2",
+			"1.8.0",
+			"1.8.1",
+			"1.8.2",
+			"1.8.3",
+			"1.9.0",
+			"1.9.1",
+			"1.10.0",
+			"1.10.1",
+			"1.10.2",
+			"1.11.0",
+			"1.11.1",
+			"1.11.2",
+			"1.11.3",
+			"1.12.0",
+			"1.12.1",
+			"1.12.2",
+			"1.12.3",
+			"1.12.4",
+			"2.0.0",
+			"2.0.1",
+			"2.0.2",
+			"2.0.3",
+			"2.1.0",
+			"2.1.1",
+			"2.1.2",
+			"2.1.3",
+			"2.1.4",
+			"2.2.0",
+			"2.2.1",
+			"2.2.2",
+			"2.2.3",
+			"2.2.4",
+			"3.0.0",
+			"3.1.0",
+			"3.1.1",
+			"3.2.0",
+			"3.2.1",
+			"3.3.0",
+			"3.3.1",
+			"3.4.0",
+			"3.4.1",
+			"3.5.0",
+			"3.5.1",
+			"3.6.0",
+			"3.6.1",
+			"3.6.2",
+			"3.6.3",
+			"3.6.4",
+			"3.7.0",
+			"3.7.1"];
+
 			function fun() {
 				let name = prompt("what is your name?", "¯\\_(ツ)_/¯");
 				name = name || "¯\\_(ツ)_/¯";
 				$("main").append(`<p>Thanks for visiting, ${name}. Bye!`);
 			}
 
-			$(function () {
-				const html = `
-				<h1>every jquery*</h1>
-				<p>this site runs on the power of 71 <a href="https://jquery.com/">jquerys</a></p>
-				<button onclick=fun()>what now?</button>
-				<small><em>*earlier releases than jquery-1.2 have been excluded due to incompatibility on some browsers</em></small>
-				`;
-				$("main").append(html);
+			$(() => {
+				$("main mark").text(versions.length);
+
+				const delay = 100;
+
+				versions.forEach(function (v, i) {
+					const li = $(`<li><mark>${v}</mark></li>`).hide();
+					$('main ul').append(li);
+					li.delay(i * delay).fadeIn();
+				});
+
 			});
 		</script>
 	</body>
